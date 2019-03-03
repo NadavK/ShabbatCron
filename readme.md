@@ -6,7 +6,7 @@ Schedules script executions relative to Shabbat and Hag in and out times.
 
 Jewish Holidays are taken into account.
 
-> Times are within close range to [chabbad.org](https://www.chabad.org/calendar/candlelighting_cdo/aid/6226/locationid/531/locationtype/1/save/1/jewish/Shabbat-Candle-Lighting-Times.htm)
+> Times are within close range of [chabbad.org](https://www.chabad.org/calendar/candlelighting_cdo/aid/6226/locationid/531/locationtype/1/save/1/jewish/Shabbat-Candle-Lighting-Times.htm)
 
 # Installation
 ## Project
