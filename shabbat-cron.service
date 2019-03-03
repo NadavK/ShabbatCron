@@ -1,0 +1,17 @@
+[Unit]
+Description=ShabbatCron process manager
+After=syslog.target network.target nss-lookup.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -u main.py
+WorkingDirectory=/home/pi/ShabbatCron/
+Restart=always
+RestartSec=5
+StartLimitIntervalSec=0
+Environment="DEBUG=false"
+User=pi
+Group=pi
+
+[Install]
+WantedBy=multi-user.target
