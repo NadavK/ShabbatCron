@@ -2,7 +2,7 @@
 Schedules script executions relative to Shabbat and Hag in and out times.
 
 * `start.sh` is executed at Shabbat/Hag start.
-* `end.sh` is executed at Shabbat/ag end.
+* `end.sh` is executed at Shabbat/Hag end.
 
 Jewish Holidays are taken into account.
 
