@@ -62,7 +62,7 @@ class Scheduler:
                 logging.debug('Not yet Erev - end, and schedule job')
                 self.run_end_script()
 
-                print('Scheduling start for: {0}'.format(start_time))
+                logging.debug('Scheduling start for: {0}'.format(start_time))
                 self.scheduler.add_job(self.run_start_script, 'date', run_date=start_time, misfire_grace_time=5, args=[])
                 self.scheduler.print_jobs()
         elif is_motzei_hag(today):
@@ -73,7 +73,7 @@ class Scheduler:
                 logging.debug('Not yet Motzei - start, and schedule job')
                 self.run_start_script()
 
-                print('Scheduling end for: {0}'.format(end_time))
+                logging.debug('Scheduling end for: {0}'.format(end_time))
                 self.scheduler.add_job(self.run_end_script, 'date', run_date=end_time, misfire_grace_time=2, args=[])
                 self.scheduler.print_jobs()
         else:
@@ -122,11 +122,10 @@ class Scheduler:
 
     def print_times(self):
         start, end = self.get_times()
-        print('Open: %s, Close: %s' % (start.strftime('%X'), end.strftime('%X')))
+        logging.info('Open: %s, Close: %s' % (start.strftime('%X'), end.strftime('%X')))
         sunrise, sunset, shaa_zmanit, day_hours, night_hours = jtimes.get_day_times()
-        print('sunrise:', sunrise.strftime('%X'), 'sunset', sunset.strftime('%X'), 'stars',
-              jtimes.stars_out().strftime('%X'), 'shaa zmanit:', shaa_zmanit, 'daka zmanit:', shaa_zmanit / 60,
-              'day hours:', day_hours, 'night hours:', night_hours)
+        logging.info('sunrise: %s, sunset: %s, stars: %s, shaa zmanit: %s, daka zmanit: %s, day hours: %s, night hours: %s' %
+                     (sunrise.strftime('%X'), sunset.strftime('%X'), jtimes.stars_out().strftime('%X'), shaa_zmanit, shaa_zmanit / 60, day_hours, night_hours))
 
     def test(self, year):
         print('Testing, year=' + year)
